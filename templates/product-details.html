@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 mb-4 mb-md-0">
+
+        <div class="product-image-slider">
+
+          <div data-image="{{ product.image.images.url }}">
+            <img class="img-fluid w-100" src="{{ product.image.images.url }}" alt="product-image">
+          </div>
+
+          <div data-image="{% static 'images/showcase/showcase-2.png' %}">
+            <img class="img-fluid w-100" src="{% static 'images/showcase/showcase-2.png' %}" alt="product-image">
+          </div>
+
+          <div data-image="{% static 'images/showcase/showcase-2.png' %}">
+            <img class="img-fluid w-100" src="{% static 'images/showcase/showcase-2.png' %}" alt="product-image">
+          </div>
+
+          <div data-image="{% static 'images/showcase/showcase-2.png' %}">
+            <img class="img-fluid w-100" src="{% static 'images/showcase/showcase-2.png' %}" alt="product-image">
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-7 offset-lg-1">
+        <h1 class="mb-4">{{ product.name }}</h1>
+        <p><strong>Color: </strong>Black, White, Gray,, {{ product.colors.color }}</p>
+        <p><strong>Size: </strong>Small, Medium, Large,, {{ product.sizes.size }}</p>
+        <p class="price py-4">{{ product.price }}
+          <s class="price">{{ product.price }}</s>
+        </p>
+        <button class="snipcart-add-item btn btn-main mb-5" data-item-id="apple-watch__25.00"
+          data-item-name="Apple Watch" data-item-image="{% static 'images/showcase/showcase-1.png' %}" data-item-price="25.00"
+          data-item-url="{% static 'products/product-1/' %}" data-item-custom1-name="Choose Color"
+          data-item-custom1-options="Black|White|Gray" data-item-custom2-name="Choose Size"
+          data-item-custom2-options="Small|Medium|Large">Add to Cart
+        </button>
+        <div class="content">
+          <p>{{ product.text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="{% static 'plugins/jquery/jquery.js' %}"></script>
+
+<script src="{% static 'plugins/bootstrap/bootstrap.min.js' %}"></script>
+
+<script src="{% static 'plugins/slick/slick.min.js' %}"></script>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+
+{% endblock content %}

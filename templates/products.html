@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+<section class="section gallery">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h1 class="font-weight-bold">All latest Smart Watch</h1>
+      </div>
+
+
+
+{% for p in product %}
+
+
+
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="block">
+          <div class="gallery-overlay">
+            <a href="{% url 'product_details' p.id %}" class="gallery-popup">
+              <i class="tf-ion-plus-round"></i>
+            </a>
+          </div>
+          <img class="img-fluid" src="{{ p.image.images.url }}" alt="Apple Watch">
+        </div>
+        <div class="product-info">
+        <h4 class="mb-2"><a href="{% url 'product_details' p.id %}" class="link-title">{{ p.name }}</a></h4>
+        <p class="price">${{ p.price }}
+          <s class="price">{{ p.price }}</s>
+          </p>
+        </div>
+      </div>
+
+
+
+{% endfor%}
+
+      </div>
+  </div>
+</section>
+
+
+
+
+<script src="{% static 'plugins/jquery/jquery.js' %}"></script>
+
+<script src="{% static 'plugins/bootstrap/bootstrap.min.js' %}"></script>
+
+<script src="{% static 'plugins/slick/slick.min.js' %}"></script>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+
+
+{% endblock content %}
